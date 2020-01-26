@@ -1,0 +1,32 @@
+<div class="wrapp">
+  <div>{{ message }}</div>
+  <div class="register">
+    <form [formGroup]="register">
+      <div class="first-name">
+        <input
+          type="text"
+          formControlName="firstname"
+          placeholder="First name"
+        />
+        <p>{{ errorMessageFirstName }}</p>
+      </div>
+      <div class="last-name">
+        <input type="text" formControlName="lastname" placeholder="Last name" />
+        <p>{{ errorMessageLastName }}</p>
+      </div>
+      <div class="email">
+        <input type="email" formControlName="email" placeholder="Email" />
+        <p>{{ errorMessageEmail }}</p>
+      </div>
+      <div class="password">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <p>{{ errorMessagePassword }}</p>
+      </div>
+      <input type="button" value="REGISTER" (click)="submit()" />
+    </form>
+  </div>
+</div>

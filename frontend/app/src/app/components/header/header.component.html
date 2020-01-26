@@ -1,0 +1,15 @@
+<div class="header">
+  <p class="info">SHOP WISELY AND SAVE MONEY | FREE DELIVERY OVER {{20 | currency:'BAM'}} IN YOUR CITY</p>
+<div class="links">
+  <a *ngIf="!facebookService.isUserLogged()" [routerLink]="['/login']">Login</a>
+  <label *ngIf="!facebookService.isUserLogged()"> or </label>
+  <a
+    *ngIf="!facebookService.isUserLogged()"
+    [routerLink]="['/register']">Create an Account</a>
+  <label *ngIf="facebookService.isUserLogged()">Welcome {{ userName }}!</label>
+  <a
+    *ngIf="facebookService.isUserLogged()"
+    [routerLink]="['/']"
+    (click)="logout()">Logout</a>
+</div>
+</div>

@@ -1,0 +1,37 @@
+<div class="wrapp">
+  <div>{{ message }}</div>
+  <div class="login">
+    <form [formGroup]="login">
+      <div class="facebook" (click)="loginWithFacebook()">
+        <input
+          class="button-facebook"
+          type="button"
+          value="Login with Facebook"
+        />
+        <fa-icon [icon]="faFacebookSquare"></fa-icon>
+      </div>
+      <div class="or">
+        <p>or</p>
+      </div>
+      <div class="email-password">
+        <div class="email">
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+          />
+          <p>{{ errorMessageEmail }}</p>
+        </div>
+        <div class="password">
+          <input
+            type="password"
+            formControlName="password"
+            placeholder="Enter your password"
+          />
+          <p>{{ errorMessagePassword }}</p>
+        </div>
+        <input type="button" value="LOGIN" (click)="submit()" />
+      </div>
+    </form>
+  </div>
+</div>

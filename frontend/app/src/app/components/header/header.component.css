@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #3f3f3f;
+  height: 30px;
+  font: 400 8px 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  padding-right: 15px;
+  padding-left: 370px;
+  color: #ffffff;
+}
+.info {
+  margin: 0;
+  padding: 0;
+  font: 400 11px 'Poppins', sans-serif;
+}
+.links {
+  margin: 0;
+}
+.links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.links label {
+  font-size: 7px;
+  color: #bebdbd;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.links a:hover {
+  color: olive;
+}
