@@ -15,10 +15,10 @@ export class RegisterComponent implements OnInit {
     password: new FormControl("", Validators.compose([Validators.required, Validators.minLength(8)]))
   });
 
-  errorMessageEmail;
-  errorMessagePassword;
-  errorMessageLastName;
-  errorMessageFirstName;
+  errorMessageEmail = "";
+  errorMessagePassword = "";
+  errorMessageLastName = "";
+  errorMessageFirstName = "";
 
   constructor() { }
 

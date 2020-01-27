@@ -1,4 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
+import { User } from '../models/user';
 declare var FB: any;
 
 @Injectable({
@@ -41,7 +42,17 @@ export class FacebookService {
        FB.login((response :any) => {
         this._zone.run(() => {
          if (response.status === 'connected') {
-           // Logged into your webpage and Facebook.
+           // Logged into your webpage and Facebook, get informations
+           FB.api('/me?fields=name,email', (response :any) => {
+            this._zone.run(() => {
+            if (response && !response.error) {
+              // informations of logged user
+             
+            } else {
+              // something went wrong
+            }
+          })
+        })
            this.userLogged = true;
          } else {
            // The person is not logged into your webpage or we are unable to tell. 
