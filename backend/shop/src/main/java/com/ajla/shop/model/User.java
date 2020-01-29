@@ -9,10 +9,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 @Entity
 @Table(name = "users")
@@ -26,7 +22,6 @@ public class User {
     private String userName; //first and last name
     private String email;
     private String password;
-    private String image; //url for image
 
     @OneToOne
     @JoinColumn(name = "role_id")
@@ -53,12 +48,6 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-    public String getImage() {
-        return image;
-    }
-    public void setImage(String image) {
-        this.image = image;
     }
     public Role getRole() {
         return role;

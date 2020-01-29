@@ -43,6 +43,16 @@ public class UserController {
         this.jwtTokenUtil = jwtTokenUtil;
     }
 
+    private void authenticate(final String email, final String password) throws Exception {
+        try {
+            final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
+        } catch (DisabledException e) {
+            throw new Exception("USER_DISABLED", e);
+        } catch (BadCredentialsException e) {
+            throw new Exception("INVALID_CREDENTIALS", e);
+        }
+    }
+
     @PostMapping(value = "/user/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody final User authenticationRequest) throws Exception {
         authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
@@ -53,33 +63,14 @@ public class UserController {
        return ResponseEntity.ok(new JwtResponse(userName, token, userDetails.getUsername()));
     }
 
-    @PostMapping("/register")
-    public ResponseEntity<String> saveUserData(@RequestBody final User user) {
-        final HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.TEXT_PLAIN);
-        Boolean emailExist = userService.saveDataFromUser(user);
-        if(emailExist == null) {
-            return new ResponseEntity<>("Your data is not valid!", headers, HttpStatus.BAD_REQUEST);
+    @PostMapping("/user/register")
+    public ResponseEntity<?> saveUserData(@RequestBody final User user) {
+        try {
+            userService.saveDataFromUser(user);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        } catch (Throwable ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
-        if(!emailExist) {
-            return new ResponseEntity<>(
-                    "You are successfully registered " + user.getUserName() + "!",
-                    headers,
-                    HttpStatus.OK);
-        }
-        return new ResponseEntity<>(
-                "You are already registered with " + user.getEmail() + " email!",
-                headers,
-                HttpStatus.BAD_REQUEST);
     }
 
-    private void authenticate(final String email, final String password) throws Exception {
-        try {
-            final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
-        } catch (DisabledException e) {
-            throw new Exception("USER_DISABLED", e);
-        } catch (BadCredentialsException e) {
-            throw new Exception("INVALID_CREDENTIALS", e);
-        }
-    }
 }

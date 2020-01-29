@@ -1,14 +1,14 @@
 <div class="header">
   <p class="info">SHOP WISELY AND SAVE MONEY | FREE DELIVERY OVER {{20 | currency:'BAM'}} IN YOUR CITY</p>
 <div class="links">
-  <a *ngIf="!facebookService.isUserLogged()" [routerLink]="['/login']">Login</a>
-  <label *ngIf="!facebookService.isUserLogged()"> or </label>
+  <a *ngIf="!userService.isUserLoggedIn()" [routerLink]="['/login']">Login</a>
+  <label *ngIf="!userService.isUserLoggedIn()"> or </label>
   <a
-    *ngIf="!facebookService.isUserLogged()"
+    *ngIf="!userService.isUserLoggedIn()"
     [routerLink]="['/register']">Create an Account</a>
-  <label *ngIf="facebookService.isUserLogged()">Welcome {{ userName }}!</label>
+  <label class="welcome-label" *ngIf="userService.isUserLoggedIn()">Welcome {{ userService.getUserName() }}!</label>
   <a
-    *ngIf="facebookService.isUserLogged()"
+    *ngIf="userService.isUserLoggedIn()"
     [routerLink]="['/']"
     (click)="logout()">Logout</a>
 </div>

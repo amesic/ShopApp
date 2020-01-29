@@ -1,5 +1,9 @@
 <div class="wrapp">
-  <div>{{ message }}</div>
+  <app-message
+    [ngClass]="{ show: message != undefined }"
+    [type]="type"
+    [message]="message"
+  ></app-message>
   <div class="login">
     <form [formGroup]="login">
       <div class="facebook" (click)="loginWithFacebook()">
@@ -34,4 +38,11 @@
       </div>
     </form>
   </div>
+</div>
+
+<div
+  class="spinner"
+  [ngClass]="{ showSpinner: facebookService.requestIsDone() }"
+>
+  <app-spinner [componentUsingSpinner]="'app'"></app-spinner>
 </div>

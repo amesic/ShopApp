@@ -2,6 +2,7 @@ import { Component, OnInit, OnChanges, NgZone } from '@angular/core';
 import { checkLoginState } from '../../utils/checkLoginState';
 import { Router } from '@angular/router';
 import { FacebookService } from 'src/app/services/facebook.service';
+import { UserService } from 'src/app/services/user.service';
 declare var FB: any;
 
 @Component({
@@ -12,14 +13,14 @@ declare var FB: any;
 export class HeaderComponent implements OnInit {
  private userLogged;
 
-  constructor(private router: Router, private facebookService: FacebookService) { }
+  constructor(
+    private router: Router, 
+    private userService: UserService) { }
 
-  ngOnInit() {
-    this.facebookService.connect();
-  }
+  ngOnInit() {}
 
   logout() {
-    this.facebookService.logout();
+    this.userService.logout();
   }
 
 }

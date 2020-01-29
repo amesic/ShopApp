@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit {
 
   errorMessageEmail;
   errorMessagePassword;
+
+  type = "error";
   message;
 
   informationFromFB;
@@ -40,9 +42,12 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithFacebook() {
-  this.facebookService.login();
+    this.facebookService.login().subscribe(message => 
+      this.message = message.text
+      );
   }
   submit() {
+    this.message = undefined;
     //email errors
     if (this.email.errors != null) {
       this.errorMessageEmail = "Email is required!";

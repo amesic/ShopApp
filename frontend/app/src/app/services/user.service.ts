@@ -1,12 +1,15 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { User } from '../models/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
   urlLogin = "/api/user/login";
+  urlRegister = "/api/user/register";
 
   constructor(private http: HttpClient) {}
 
@@ -27,7 +30,7 @@ export class UserService {
     let user = sessionStorage.getItem("username");
     return !(user == null);
   }
-  logOut() {
+  logout() {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("token");
@@ -45,5 +48,12 @@ export class UserService {
     } else {
       return "";
     }
+  }
+  register(name: string, email: string, password: string): Observable<any> {
+    return this.http.post<User>(this.urlRegister, {
+      userName: name,
+      email: email,
+      password: password
+    });
   }
 }

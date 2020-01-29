@@ -1,9 +1,9 @@
 .wrapp {
   display: flex;
-  justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 150px;
-  height: 390px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 110px;
 }
 .login {
   width: 60%;
@@ -12,6 +12,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  height: 350px;
+  margin-top: 10px;
 }
 form {
   display: flex;
@@ -51,7 +53,6 @@ form {
   font-size: 35px;
   color: white;
 }
-
 .email-password > .email > input,
 .email-password > .password > input {
   font: 400 16px "Poppins", sans-serif;
@@ -67,13 +68,17 @@ form {
   margin-bottom: 20px;
 }
 .email-password > .email > p,
-.email-password > .password > p {
+.email-password > .password > p,
+.message {
   margin: 0;
   margin-top: 5px;
   font: 300 10px "Poppins", sans-serif;
   text-align: start;
   padding-left: 10px;
   color: rgb(212, 5, 5);
+}
+.message {
+  font-size: 15px;
 }
 .email-password > input[type="button"] {
   height: 40px;
@@ -103,4 +108,21 @@ form {
   right: -8px;
   background-color: white;
 }
-
+.spinner.showSpinner {
+  display: block;
+}
+.spinner {
+  height: 100%;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.164);
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+app-message {
+  width: 60%;
+  display: none;
+}
+app-message.show {
+  display: block;
+}

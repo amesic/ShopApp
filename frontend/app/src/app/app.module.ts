@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SpinnerComponent } from './components/shared/spinner/spinner/spinner.component';
+import { MessageComponent } from './components/shared/message/message.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RegisterComponent } from './components/register/register.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
+    SpinnerComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

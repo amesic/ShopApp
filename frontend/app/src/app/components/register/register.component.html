@@ -1,5 +1,9 @@
 <div class="wrapp">
-  <div>{{ message }}</div>
+  <app-message
+    [ngClass]="{ show: message != undefined }"
+    [type]="type"
+    [message]="message"
+  ></app-message>
   <div class="register">
     <form [formGroup]="register">
       <div class="first-name">

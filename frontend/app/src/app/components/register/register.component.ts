@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -19,8 +20,10 @@ export class RegisterComponent implements OnInit {
   errorMessagePassword = "";
   errorMessageLastName = "";
   errorMessageFirstName = "";
+  message;
+  type;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -64,6 +67,33 @@ export class RegisterComponent implements OnInit {
       this.errorMessagePassword = "Password must be minimum 8 character!";
     } else {
       this.errorMessagePassword = "";
+    }
+    //valid everything
+    if (this.email.valid &&
+      this.password.valid &&
+      this.firstname.valid &&
+      this.lastname.valid) {
+      this.userService.register(
+        this.firstname.value + " " + this.lastname.value, 
+        this.email.value,
+        this.password.value).subscribe(user => {
+          this.register.reset();
+          this.type = "success";
+          this.message = "You are successfully registered " + user.userName;
+          window.scroll(0,0);
+        }, err => {
+          if (err.error == "User with this email already exist!" ||
+          err.error == "You have already created an account with this email manually!") {
+            this.message = "User with this email already exist!";
+            this.type = "error";
+            window.scroll(0,0);
+          } else {
+            console.log(err.error);
+            this.message = "Something went wrong";
+            this.type = "error";
+            window.scroll(0,0);
+          }
+        });
     }
   }
 
