@@ -1,0 +1,55 @@
+<div class="wrapp">
+  <div class="new-item">
+    <div class="wrapp-title">
+      <p class="title">Add new item</p>
+      <div class="company">
+        <p>Company:</p>
+        <img
+          class="company-logo"
+          *ngIf="userService.getUserName() == 'AdminDM'"
+          src="https://res.cloudinary.com/auctionabh/image/upload/v1580406365/ShopAppLogoPicture/Dm_Logo_dvngky.svg"
+        />
+        <img
+          class="company-logo"
+          *ngIf="userService.getUserName() == 'AdminCM'"
+          src="https://res.cloudinary.com/auctionabh/image/upload/v1580406379/ShopAppLogoPicture/CM-color_vs5yx1.png"
+        />
+      </div>
+    </div>
+
+    <form [formGroup]="add">
+      <input
+        class="input-text"
+        type="text"
+        placeholder="Item Name"
+        formControlName="name"
+      />
+      <input
+        class="input-number"
+        type="number"
+        placeholder="Price (BAM)"
+        formControlName="price"
+      />
+      <textarea
+        class="input-description"
+        placeholder="Description"
+        formControlName="description"
+        maxlength="65535"
+      ></textarea>
+
+      <div class="image-button">
+        <button
+          type="button"
+          class="file-upload-button"
+          [ngClass]="{ showButton: enableSaveCardButton }"
+        >
+          <fa-icon [icon]="faPlusCircle"></fa-icon>
+          ADD ITEM PHOTO
+          <input type="file" (change)="onFileSelect($event)" />
+        </button>
+        <img class="item-img" src="{{ item_image }}" />
+        <p class="message">{{ messagePhoto }}</p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -115,7 +115,19 @@ public class DatabaseSeeder {
             u3.setEmail("suljo@gmail.com");
             u3.setRole(userRole);
 
-            userRepository.saveAll(Arrays.asList(u, u1, u2, u3));
+            User u4 = new User();
+            u4.setUserName("AdminCM");
+            u4.setPassword(passwordEncoder.encode("12345678"));
+            u4.setEmail("info@cm.ba");
+            u4.setRole(adminRole);
+
+            User u5 = new User();
+            u5.setUserName("AdminDM");
+            u5.setPassword(passwordEncoder.encode("12345678"));
+            u5.setEmail("info@dm.ba");
+            u5.setRole(adminRole);
+
+            userRepository.saveAll(Arrays.asList(u, u1, u2, u3, u4, u5));
             logger.info("User table seeded");
         } else {
             logger.trace("User Seeding Not Required");

@@ -15,6 +15,7 @@ import { SpinnerComponent } from './components/shared/spinner/spinner/spinner.co
 import { MessageComponent } from './components/shared/message/message.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SetProductsComponent } from './components/shared/set-products/set-products.component';
+import { AddNewItemComponent } from './components/add-new-item/add-new-item.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SetProductsComponent } from './components/shared/set-products/set-produ
     MessageComponent,
     DashboardComponent,
     SetProductsComponent,
+    AddNewItemComponent,
   ],
   imports: [
     BrowserModule,

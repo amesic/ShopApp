@@ -66,3 +66,9 @@ p {
   font: 200 15px "Poppins", sans-serif;
   color: olive;
 }
+.message {
+  font: 200 30px "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 50px;
+
+}

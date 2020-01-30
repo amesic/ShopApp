@@ -1,26 +1,22 @@
-import { Component, OnInit, OnChanges, NgZone } from '@angular/core';
-import { checkLoginState } from '../../utils/checkLoginState';
-import { Router } from '@angular/router';
-import { FacebookService } from 'src/app/services/facebook.service';
-import { UserService } from 'src/app/services/user.service';
-declare var FB: any;
+import { Component, OnInit, OnChanges, NgZone } from "@angular/core";
+import { Router } from "@angular/router";
+import { UserService } from "src/app/services/user.service";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
- private userLogged;
+  faPlusCircle = faPlusCircle;
 
-  constructor(
-    private router: Router, 
-    private userService: UserService) { }
+  constructor(private userService: UserService,
+    private router: Router) {}
 
   ngOnInit() {}
 
   logout() {
     this.userService.logout();
   }
-
 }

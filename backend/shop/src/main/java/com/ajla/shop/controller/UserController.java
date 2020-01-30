@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 @CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
@@ -59,8 +61,17 @@ public class UserController {
         final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getEmail());
         final String token = jwtTokenUtil.generateToken(userDetails);
         final  String userName = userService.findByEmail(authenticationRequest.getEmail()).getUserName();
+
+        Map<String, Object> role_user = new HashMap<>();
+        userDetails.getAuthorities().forEach(role -> {
+            role_user.put("ROLE", role.getAuthority());
+        });
         //when we have 3 arg, first is response, second is headers, and third is status
-       return ResponseEntity.ok(new JwtResponse(userName, token, userDetails.getUsername()));
+       return ResponseEntity.ok(new JwtResponse(
+               userName,
+               token,
+               authenticationRequest.getEmail(),
+               role_user.values()));
     }
 
     @PostMapping("/user/register")

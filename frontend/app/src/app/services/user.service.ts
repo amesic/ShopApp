@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { User } from '../models/user';
-import { Observable } from 'rxjs';
+import { User } from "../models/user";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -21,7 +21,9 @@ export class UserService {
           sessionStorage.setItem("username", userData.username);
           let tokenStr = "Bearer " + userData.token;
           sessionStorage.setItem("token", tokenStr);
-          sessionStorage.setItem("email", email);
+          sessionStorage.setItem("email", userData.email);
+          sessionStorage.setItem("role", userData.role[0]);
+          console.log(userData.role[0]);
           return userData;
         })
       );
@@ -34,20 +36,16 @@ export class UserService {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("role");
   }
   getUserName() {
-    if (this.isUserLoggedIn()) {
-      return sessionStorage.getItem("username");
-    } else {
-      return "";
-    }
+    return sessionStorage.getItem("username");
   }
   getUserEmail() {
-    if (this.isUserLoggedIn()) {
-      return sessionStorage.getItem("email");
-    } else {
-      return "";
-    }
+    return sessionStorage.getItem("email");
+  }
+  getRole() {
+    return sessionStorage.getItem("role");
   }
   register(name: string, email: string, password: string): Observable<any> {
     return this.http.post<User>(this.urlRegister, {

@@ -25,7 +25,6 @@ export class SetProductsComponent implements OnInit, OnChanges {
   }
   ngOnChanges() {
     if (this.paginationInfo != undefined) {
-      console.log(this.paginationInfo);
       if (this.paginationInfo.items.length != 0) {
         this.message_products_empty = "";
         this.products = this.paginationInfo.items;

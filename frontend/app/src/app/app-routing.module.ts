@@ -11,6 +11,7 @@ import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { UserService } from "./services/user.service";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { AddNewItemComponent } from "./components/add-new-item/add-new-item.component";
 
 @Injectable()
 export class LoginRegisterActivate implements CanActivate {
@@ -43,7 +44,8 @@ const routes: Routes = [
       },
       { path: "", component: DashboardComponent }
     ]
-  }
+  },
+  { path: "add", component: AddNewItemComponent }
 ];
 
 @NgModule({

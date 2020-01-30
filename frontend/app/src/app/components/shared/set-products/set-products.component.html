@@ -1,5 +1,6 @@
 <div class="wrapp">
   <p class="title">{{ title }}</p>
+  <p class="message">{{ message_products_empty }}</p>
   <div *ngIf="products != undefined" class="products">
     <div class="product" *ngFor="let product of products">
       <div class="image-company">
@@ -7,12 +8,12 @@
         <img
           class="company-logo"
           *ngIf="product.company.name == 'Drogerie Markt (DM)'"
-          src="https://upload.wikimedia.org/wikipedia/commons/5/50/Dm_Logo.svg"
+          src="https://res.cloudinary.com/auctionabh/image/upload/v1580406365/ShopAppLogoPicture/Dm_Logo_dvngky.svg"
         />
         <img
           class="company-logo"
           *ngIf="product.company.name == 'Cosmetic Market (CM)'"
-          src="https://www.importanne.ba/wp-content/uploads/2018/11/CM-color.png"
+          src="https://res.cloudinary.com/auctionabh/image/upload/v1580406379/ShopAppLogoPicture/CM-color_vs5yx1.png"
         />
       </div>
 

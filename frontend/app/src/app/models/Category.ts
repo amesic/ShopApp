@@ -1,5 +1,8 @@
+import { Brand } from './Brand';
+
 export class Category {
     id;
     name;
-    subcategory: Category;
+    subcategory: Category[];
+    brand: Brand;
 }
