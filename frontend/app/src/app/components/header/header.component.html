@@ -1,15 +1,31 @@
 <div class="header">
-  <p class="info">SHOP WISELY AND SAVE MONEY | FREE DELIVERY OVER {{20 | currency:'BAM'}} IN YOUR CITY</p>
-<div class="links">
-  <a *ngIf="!userService.isUserLoggedIn()" [routerLink]="['/login']">Login</a>
-  <label *ngIf="!userService.isUserLoggedIn()"> or </label>
-  <a
-    *ngIf="!userService.isUserLoggedIn()"
-    [routerLink]="['/register']">Create an Account</a>
-  <label class="welcome-label" *ngIf="userService.isUserLoggedIn()">Welcome {{ userService.getUserName() }}!</label>
-  <a
-    *ngIf="userService.isUserLoggedIn()"
-    [routerLink]="['/']"
-    (click)="logout()">Logout</a>
-</div>
+  <div class="header-up">
+    <p class="info">
+      SHOP WISELY AND SAVE MONEY | FREE DELIVERY OVER
+      {{ 20 | currency: "BAM" }} IN YOUR CITY
+    </p>
+    <div class="links">
+      <a *ngIf="!userService.isUserLoggedIn()" [routerLink]="['/home/login']"
+        >Login</a
+      >
+      <label *ngIf="!userService.isUserLoggedIn()"> or </label>
+      <a *ngIf="!userService.isUserLoggedIn()" [routerLink]="['/home/register']"
+        >Create an Account</a
+      >
+      <label class="welcome-label" *ngIf="userService.isUserLoggedIn()"
+        >Welcome {{ userService.getUserName() }}!</label
+      >
+      <a
+        *ngIf="userService.isUserLoggedIn()"
+        [routerLink]="['/home']"
+        (click)="logout()"
+        >Logout</a
+      >
+    </div>
+  </div>
+
+  <div class="header-down">
+    <a [routerLink]="['/']" routerLinkActive="active">HOME</a>
+    <a [routerLink]="['/shop']" routerLinkActive="active">SHOP</a>
+  </div>
 </div>

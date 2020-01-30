@@ -1,0 +1,32 @@
+<div class="wrapp">
+  <p class="title">{{ title }}</p>
+  <div *ngIf="products != undefined" class="products">
+    <div class="product" *ngFor="let product of products">
+      <div class="image-company">
+        <img class="product-image" src="{{ product.image }}" />
+        <img
+          class="company-logo"
+          *ngIf="product.company.name == 'Drogerie Markt (DM)'"
+          src="https://upload.wikimedia.org/wikipedia/commons/5/50/Dm_Logo.svg"
+        />
+        <img
+          class="company-logo"
+          *ngIf="product.company.name == 'Cosmetic Market (CM)'"
+          src="https://www.importanne.ba/wp-content/uploads/2018/11/CM-color.png"
+        />
+      </div>
+
+      <p class="product-name">{{ product.name }}</p>
+      <p class="product-price">{{ product.price | currency: "BAM" }}</p>
+    </div>
+  </div>
+  <div class="load">
+    <input
+      class="button-load"
+      [ngClass]="{ hide: hide_button }"
+      type="button"
+      value="LOAD MORE"
+      (click)="getNextPage()"
+    />
+  </div>
+</div>

@@ -1,18 +1,48 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component'
+import { NgModule, Injectable } from "@angular/core";
+import {
+  Routes,
+  RouterModule,
+  CanActivate,
+  Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot
+} from "@angular/router";
+import { LoginComponent } from "./components/login/login.component";
+import { RegisterComponent } from "./components/register/register.component";
+import { UserService } from "./services/user.service";
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+
+@Injectable()
+export class LoginRegisterActivate implements CanActivate {
+  constructor(private userService: UserService, private router: Router) {}
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    if (this.userService.isUserLoggedIn()) {
+      this.router.navigate(["/"]);
+    }
+    return true;
+  }
+}
 
 const routes: Routes = [
- {
-    path: "login",
-    component: LoginComponent,
-    //canActivate: [LoginRegisterActivate],
-  },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   {
-    path: "register",
-    component: RegisterComponent,
-    //canActivate: [LoginRegisterActivate],
+    path: "home",
+    children: [
+      {
+        path: "login",
+        component: LoginComponent,
+        canActivate: [LoginRegisterActivate]
+      },
+      {
+        path: "register",
+        component: RegisterComponent,
+        canActivate: [LoginRegisterActivate]
+      },
+      { path: "", component: DashboardComponent }
+    ]
   }
 ];
 
@@ -20,4 +50,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

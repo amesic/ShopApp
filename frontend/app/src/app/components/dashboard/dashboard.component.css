@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap");
+div,
+p {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+.brand {
+  background-color: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25em;
+}
+.brand-logo {
+  background-color: olive;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 400 30px "Dancing Script", cursive;
+}
+.brand-moto {
+  font: 200 20px "Poppins", sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center
+}
+.brand-image-moto {
+    height: 100%;
+
+}
