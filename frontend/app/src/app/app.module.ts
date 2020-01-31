@@ -16,6 +16,7 @@ import { MessageComponent } from './components/shared/message/message.component'
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SetProductsComponent } from './components/shared/set-products/set-products.component';
 import { AddNewItemComponent } from './components/add-new-item/add-new-item.component';
+import { ShowHideDirective } from './directives/show-hide.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AddNewItemComponent } from './components/add-new-item/add-new-item.comp
     DashboardComponent,
     SetProductsComponent,
     AddNewItemComponent,
+    ShowHideDirective,
   ],
   imports: [
     BrowserModule,

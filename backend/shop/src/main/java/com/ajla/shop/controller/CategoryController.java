@@ -1,5 +1,6 @@
 package com.ajla.shop.controller;
 
+import com.ajla.shop.model.Brand;
 import com.ajla.shop.model.Category;
 import com.ajla.shop.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,5 +30,15 @@ public class CategoryController {
     @GetMapping(value = "/category/all")
     public ResponseEntity<List<Category>> getAllCategories() {
         return new ResponseEntity<>(categoryService.getCategories(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/category/subcategories")
+    public ResponseEntity<List<Category>> getSubcategoriesOfCategory(@RequestParam final String name) {
+        return new ResponseEntity<>(categoryService.getSubcategoriesOfCategory(name), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/category/brands")
+    public ResponseEntity<List<Brand>> getBrandsOfCategory(@RequestParam String name) {
+        return new ResponseEntity<>(categoryService.getCategoryBrands(name), HttpStatus.OK);
     }
 }

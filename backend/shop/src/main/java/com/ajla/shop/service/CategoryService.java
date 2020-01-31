@@ -1,5 +1,6 @@
 package com.ajla.shop.service;
 
+import com.ajla.shop.model.Brand;
 import com.ajla.shop.model.Category;
 import com.ajla.shop.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,17 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public List<Category> getCategories() {
-        return categoryRepository.findAll();
+        return categoryRepository.getAllCategories();
+    }
+
+    @Override
+    public List<Category> getSubcategoriesOfCategory(final String name) {
+        return categoryRepository.getSubcategoriesOfCategory(name);
+    }
+
+    @Override
+    public List<Brand> getCategoryBrands(final String category_name) {
+        return categoryRepository.getCategoryBrands(category_name);
     }
 
 }

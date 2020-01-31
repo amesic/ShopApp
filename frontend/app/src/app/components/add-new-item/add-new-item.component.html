@@ -50,6 +50,52 @@
         <img class="item-img" src="{{ item_image }}" />
         <p class="message">{{ messagePhoto }}</p>
       </div>
+
+      <div class="wrapp-categories-relative">
+        <div class="wrapp-categories" (click)="showHideCategories()">
+          <p>{{ picked_category }}</p>
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div>
+        <div class="categories" [ngClass]="{ show: show_categories }">
+          <div
+            *ngFor="let category of categories"
+            class="category"
+            (click)="getSubcategoriesAndBrands(category)">
+            {{ category.name }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="subcategories != undefined" class="wrapp-subcategories-relative">
+        <div class="wrapp-subcategories" (click)="showHideSubCategories()">
+          <p>{{ picked_subcategory }}</p>
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div>
+        <div class="subcategories" [ngClass]="{ show: show_subcategories }">
+          <div
+            *ngFor="let subcategory of subcategories"
+            class="subcategory"
+            (click)="pickSubcategory(subcategory)">
+            {{ subcategory.name }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="brands != undefined" class="wrapp-brands-relative">
+        <div class="wrapp-brands" (click)="showHideBrands()">
+          <p>{{ picked_brand }}</p>
+          <fa-icon [icon]="faChevronDown"></fa-icon>
+        </div>
+        <div class="brands" [ngClass]="{ show: show_brands}">
+          <div
+            *ngFor="let brand of brands"
+            class="brand"
+            (click)="pickBrand(brand)">
+            {{ brand.name }}
+          </div>
+        </div>
+      </div>
+
     </form>
   </div>
 </div>

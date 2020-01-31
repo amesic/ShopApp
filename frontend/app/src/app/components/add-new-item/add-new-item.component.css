@@ -6,6 +6,7 @@ div {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 .new-item {
   width: 50%;
@@ -39,7 +40,8 @@ form {
   flex-direction: column;
   align-items: center;
 }
-form > .input-text, form > .input-number {
+form > .input-text,
+form > .input-number {
   font: 400 16px "Poppins", sans-serif;
   height: 40px;
   padding-left: 10px;
@@ -83,7 +85,8 @@ form > .input-description {
 .image-button > button:hover {
   color: olive;
 }
-.image-button > button:hover > input, .image-button > button:hover > fa-icon {
+.image-button > button:hover > input,
+.image-button > button:hover > fa-icon {
   cursor: pointer;
 }
 .image-button > button > input {
@@ -99,5 +102,71 @@ form > .input-description {
   object-fit: cover;
 }
 
-
-
+.wrapp-categories > p,
+.categories,
+.wrapp-subcategories > p,
+.subcategories,
+.wrapp-brands > p,
+.brands {
+  font: 200 16px "Poppins", sans-serif;
+}
+.wrapp-categories:hover,
+.categories > .category:hover,
+.wrapp-subcategories:hover,
+.subcategories > .subcategory:hover,
+.wrapp-brands:hover,
+.brands > .brand:hover {
+  background-color: rgb(180, 180, 1);
+  cursor: pointer;
+  color: white;
+}
+.wrapp-categories,
+.wrapp-subcategories,
+.wrapp-brands {
+  background-color: rgb(238, 237, 237);
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.wrapp-categories-relative,
+.wrapp-subcategories-relative,
+.wrapp-brands-relative {
+  width: 90%;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.wrapp-subcategories-relative,
+.wrapp-brands-relative {
+  margin-top: 0;
+}
+.categories,
+.subcategories,
+.brands {
+  background-color: rgb(238, 237, 237);
+  position: absolute;
+  width: 100%;
+  top: 41px;
+  z-index: 1;
+}
+.categories > .category,
+.subcategories > .subcategory,
+.brands > .brand {
+  height: 40px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+.categories,
+.subcategories,
+.brands {
+  display: none;
+}
+.categories.show,
+.subcategories.show,
+.brands.show {
+  display: block;
+}
