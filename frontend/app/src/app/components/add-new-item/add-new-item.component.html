@@ -1,4 +1,9 @@
 <div class="wrapp">
+  <app-message
+    [ngClass]="{ show: message != undefined }"
+    [type]="type"
+    [message]="message"
+  ></app-message>
   <div class="new-item">
     <div class="wrapp-title">
       <p class="title">Add new item</p>
@@ -19,18 +24,22 @@
 
     <form [formGroup]="add">
       <input
+        [ngClass]="{ error: errorName }"
         class="input-text"
         type="text"
         placeholder="Item Name"
         formControlName="name"
       />
       <input
+        (keyup)="_keyUp($event)"
+        [ngClass]="{ error: errorPrice }"
         class="input-number"
-        type="number"
+        type="text"
         placeholder="Price (BAM)"
         formControlName="price"
       />
       <textarea
+        [ngClass]="{ error: errorDescription }"
         class="input-description"
         placeholder="Description"
         formControlName="description"
@@ -47,12 +56,22 @@
           ADD ITEM PHOTO
           <input type="file" (change)="onFileSelect($event)" />
         </button>
-        <img class="item-img" src="{{ item_image }}" />
-        <p class="message">{{ messagePhoto }}</p>
+        <div>
+          <img
+            [ngClass]="{ error: errorImage }"
+            class="item-img"
+            src="{{ item_image }}"
+          />
+          <p class="message">{{ message_photo }}</p>
+        </div>
       </div>
 
       <div class="wrapp-categories-relative">
-        <div class="wrapp-categories" (click)="showHideCategories()">
+        <div
+          class="wrapp-categories"
+          [ngClass]="{ error: errorCategory }"
+          (click)="showHideCategories()"
+        >
           <p>{{ picked_category }}</p>
           <fa-icon [icon]="faChevronDown"></fa-icon>
         </div>
@@ -60,42 +79,63 @@
           <div
             *ngFor="let category of categories"
             class="category"
-            (click)="getSubcategoriesAndBrands(category)">
+            (click)="getSubcategoriesAndBrands(category)"
+          >
             {{ category.name }}
           </div>
         </div>
       </div>
 
-      <div *ngIf="subcategories != undefined" class="wrapp-subcategories-relative">
-        <div class="wrapp-subcategories" (click)="showHideSubCategories()">
-          <p>{{ picked_subcategory }}</p>
+      <div
+        *ngIf="subcategories != undefined"
+        class="wrapp-subcategories-relative"
+      >
+        <div
+          class="wrapp-subcategories"
+          (click)="showHideSubCategories()"
+          [ngClass]="{ error: errorSubcategory }"
+        >
+          <p>
+            {{ picked_subcategory }}
+          </p>
           <fa-icon [icon]="faChevronDown"></fa-icon>
         </div>
         <div class="subcategories" [ngClass]="{ show: show_subcategories }">
           <div
             *ngFor="let subcategory of subcategories"
             class="subcategory"
-            (click)="pickSubcategory(subcategory)">
+            (click)="pickSubcategory(subcategory)"
+          >
             {{ subcategory.name }}
           </div>
         </div>
       </div>
 
       <div *ngIf="brands != undefined" class="wrapp-brands-relative">
-        <div class="wrapp-brands" (click)="showHideBrands()">
+        <div
+          class="wrapp-brands"
+          (click)="showHideBrands()"
+          [ngClass]="{ error: errorBrand }"
+        >
           <p>{{ picked_brand }}</p>
           <fa-icon [icon]="faChevronDown"></fa-icon>
         </div>
-        <div class="brands" [ngClass]="{ show: show_brands}">
+        <div class="brands" [ngClass]="{ show: show_brands }">
           <div
             *ngFor="let brand of brands"
             class="brand"
-            (click)="pickBrand(brand)">
+            (click)="pickBrand(brand)"
+          >
             {{ brand.name }}
           </div>
         </div>
       </div>
-
     </form>
   </div>
+  <input type="button" value="DONE" class="button-done" (click)="addItem()" />
 </div>
+<div
+  class="spinner"
+  [ngClass]="{ showSpinner: loading }"
+>
+  <app-spinner [componentUsingSpinner]="'app'"></app-spinner>

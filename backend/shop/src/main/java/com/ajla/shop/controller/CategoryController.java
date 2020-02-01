@@ -33,12 +33,12 @@ public class CategoryController {
     }
 
     @GetMapping(value = "/category/subcategories")
-    public ResponseEntity<List<Category>> getSubcategoriesOfCategory(@RequestParam final String name) {
+    public ResponseEntity<List<Category>> getSubcategoriesOfCategory(@RequestParam("name") final String name) {
         return new ResponseEntity<>(categoryService.getSubcategoriesOfCategory(name), HttpStatus.OK);
     }
 
     @GetMapping(value = "/category/brands")
-    public ResponseEntity<List<Brand>> getBrandsOfCategory(@RequestParam String name) {
+    public ResponseEntity<List<Brand>> getBrandsOfCategory(@RequestParam("name") final String name) {
         return new ResponseEntity<>(categoryService.getCategoryBrands(name), HttpStatus.OK);
     }
 }

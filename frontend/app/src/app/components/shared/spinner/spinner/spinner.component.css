@@ -11,7 +11,7 @@
 }
 .loader {
   color: #ffffff;
-  font-size: 10px;
+  font-size: 1vw;
   margin-left: auto;
   margin-right: auto;
   margin-top: 205px;
@@ -24,7 +24,7 @@
   animation-delay: -0.16s;
 }
 .loader.forAppComponent {
-  margin-top: 290px;
+  margin-top: 23vw;
 }
 .loader:before,
 .loader:after {

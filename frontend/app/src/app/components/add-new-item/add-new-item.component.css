@@ -4,16 +4,18 @@ div {
 }
 .wrapp {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2vw;
+  padding-bottom: 10vw;
 }
 .new-item {
   width: 50%;
   border: 1px solid #d8d8d8;
+  margin-top: 1vw;
 }
 .title {
-  font: 200 30px "Poppins", sans-serif;
+  font: 200 2.5vw "Poppins", sans-serif;
 }
 .wrapp-title {
   display: flex;
@@ -21,19 +23,19 @@ div {
   align-items: center;
   background-color: rgb(180, 180, 1);
   color: white;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 1vw;
+  padding-left: 1vw;
 }
 .company {
   display: flex;
   align-items: center;
-  font: 200 15px "Poppins", sans-serif;
+  font: 200 1vw "Poppins", sans-serif;
 }
 .company > img {
-  width: 30px;
-  height: 30px;
+  width: 2.5vw;
+  height: 2.5vw;
   object-fit: contain;
-  margin-left: 10px;
+  margin-left: 1vw;
 }
 form {
   display: flex;
@@ -42,46 +44,44 @@ form {
 }
 form > .input-text,
 form > .input-number {
-  font: 400 16px "Poppins", sans-serif;
-  height: 40px;
-  padding-left: 10px;
+  font: 400 1.3vw "Poppins", sans-serif;
+  height: 4vw;
+  padding-left: 1vw;
   width: 90%;
   letter-spacing: 0.5px;
   border: none;
   border-bottom: 1px solid #d8d8d8;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 10px;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  padding-left: 1vw;
 }
 form > .input-description {
-  font: 400 16px "Poppins", sans-serif;
+  font: 400 1.3vw "Poppins", sans-serif;
   width: 90%;
-  padding-left: 10px;
+  padding-left: 1vw;
   letter-spacing: 0.5px;
   border: 1px solid #d8d8d8;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: 100px;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  height: 10vw;
+  padding-top: 0.5vw;
 }
-
 .image-button {
   display: flex;
   justify-content: space-evenly;
-  width: 95%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  width: 90%;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
-
 .image-button > button {
   background: #ffffff;
   border: none;
   color: #252525;
   letter-spacing: 0.56px;
-  font: 200 16px "Poppins", sans-serif;
+  font: 200 1.3vw "Poppins", sans-serif;
   overflow: hidden;
   position: relative;
 }
-
 .image-button > button:hover {
   color: olive;
 }
@@ -90,25 +90,24 @@ form > .input-description {
   cursor: pointer;
 }
 .image-button > button > input {
-  font-size: 100px;
+  font-size: 10vw;
   left: 0;
   opacity: 0;
   position: absolute;
   top: 0;
 }
 .item-img {
-  width: 40%;
-  height: 200px;
+  width: 100%;
+  height: 18vw;
   object-fit: cover;
 }
-
 .wrapp-categories > p,
 .categories,
 .wrapp-subcategories > p,
 .subcategories,
 .wrapp-brands > p,
 .brands {
-  font: 200 16px "Poppins", sans-serif;
+  font: 200 1.3vw "Poppins", sans-serif;
 }
 .wrapp-categories:hover,
 .categories > .category:hover,
@@ -124,20 +123,20 @@ form > .input-description {
 .wrapp-subcategories,
 .wrapp-brands {
   background-color: rgb(238, 237, 237);
-  height: 40px;
+  height: 3.5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 1vw;
+  padding-right: 1vw;
 }
 .wrapp-categories-relative,
 .wrapp-subcategories-relative,
 .wrapp-brands-relative {
   width: 90%;
   position: relative;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
 }
 .wrapp-subcategories-relative,
 .wrapp-brands-relative {
@@ -149,14 +148,14 @@ form > .input-description {
   background-color: rgb(238, 237, 237);
   position: absolute;
   width: 100%;
-  top: 41px;
+  top: 3.7vw;
   z-index: 1;
 }
 .categories > .category,
 .subcategories > .subcategory,
 .brands > .brand {
-  height: 40px;
-  padding-left: 10px;
+  height: 3.5vw;
+  padding-left: 1vw;
   display: flex;
   align-items: center;
 }
@@ -169,4 +168,128 @@ form > .input-description {
 .subcategories.show,
 .brands.show {
   display: block;
+}
+.button-done {
+  width: 50%;
+  border: none;
+  color: white;
+  background-color: olive;
+  margin-top: 3vw;
+  font: 400 1.5vw "Poppins", sans-serif;
+  height: 3.5vw;
+}
+.button-done:hover {
+  background-color: rgb(180, 180, 1);
+  cursor: pointer;
+}
+.message {
+  color: rgb(202, 2, 2);
+  font: 400 1vw "Poppins", sans-serif;
+  text-align: center;
+}
+
+form > .input-text.error,
+form > .input-number.error,
+form > .input-description.error {
+  border-bottom: 1px solid rgb(202, 2, 2);
+  background-color: rgba(253, 127, 127, 0.13);
+}
+.item-img.error {
+  border: 1px solid rgb(202, 2, 2);
+}
+.wrapp-categories.error,
+.wrapp-brands.error,
+.wrapp-subcategories.error {
+  border: 1px solid rgb(202, 2, 2);
+  background-color: rgba(253, 127, 127, 0.13);
+}
+
+.wrapp-categories.error:hover,
+.wrapp-brands.error:hover,
+.wrapp-subcategories.error:hover {
+  color: black;
+}
+app-message {
+  width: 50%;
+  display: none;
+}
+app-message.show {
+  display: block;
+}
+.spinner.showSpinner {
+  display: block;
+}
+.spinner {
+  height: 100%;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.164);
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+@media only screen and (max-width: 500px) {
+  .wrapp {
+    margin-top: 20vw;
+  }
+  .new-item {
+    width: 95%;
+  }
+  .button-done {
+    width: 95%;
+  }
+  app-message {
+    width: 95%;
+  }
+  .title {
+    font-size: 4vw;
+  }
+  .company {
+    font-size: 3vw;
+  }
+  .company > img {
+    height: 3.5vw;
+    width: 5.5vw;
+  }
+  form > .input-text,
+  form > .input-number,
+  form > .input-description {
+    height: 10vw;
+    font-size: 4vw;
+  }
+  form > .input-description {
+    height: 20vw;
+  }
+  .image-button > button {
+    font-size: 4vw;
+  }
+  .item-img {
+    height: 35vw;
+  }
+  .wrapp-categories,
+  .wrapp-subcategories,
+  .wrapp-brands {
+    height: 8.5vw;
+  }
+  .wrapp-categories > p,
+  .categories,
+  .wrapp-subcategories > p,
+  .subcategories,
+  .wrapp-brands > p,
+  .brands {
+    font-size: 4vw;
+  }
+  .categories,
+  .subcategories,
+  .brands {
+    top: 8.7vw;
+  }
+  .categories > .category,
+  .subcategories > .subcategory,
+  .brands > .brand {
+    height: 8.5vw;
+  }
+  .button-done {
+    height: 6.5vw;
+    font-size: 4vw;
+  }
 }

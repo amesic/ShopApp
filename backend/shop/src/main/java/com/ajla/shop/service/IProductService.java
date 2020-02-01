@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IProductService {
     PaginationInfo<Product> getNewArrivals(final Long page, final Long size);
+    Product saveNewProduct(final Product newItem);
 }

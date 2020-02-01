@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { CategoryService } from "src/app/services/category.service";
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: "app-add-new-item",
@@ -35,15 +36,30 @@ export class AddNewItemComponent implements OnInit {
   fileData: File;
   previewUrl: any;
 
+  errorName;
+  errorPrice;
+  errorDescription;
+  errorImage;
+  errorCategory;
+  errorSubcategory;
+  errorBrand;
+
+  message;
+  type;
+
+  loading = false;
+
   constructor(
     private userService: UserService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private productService: ProductService
   ) {}
 
   ngOnInit() {
     this.categoryService.getAllCategories().subscribe(categories => {
       this.categories = categories;
-    })
+    });
+
   }
 
   onFileSelect(fileInput: any) {
@@ -107,8 +123,125 @@ export class AddNewItemComponent implements OnInit {
     this.show_brands = false;
   }
 
-  addItem() {
+  _keyUp(event: any) {
+    const pattern = /^[0-9]*$/;
+    if (!pattern.test(event.target.value)) {
+      event.target.value = null;
+    }
+}
 
+  get name() {
+    return this.add.get("name");
+  }
+  get price() {
+    return this.add.get("price");
+  }
+  get description() {
+    return this.add.get("description");
+  }
+
+  addItem() {
+    if (this.name.errors != null) {
+      this.errorName = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorName = false;
+      this.message = undefined;
+    }
+    if (this.price.errors != null) {
+      this.errorPrice = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorPrice = false;
+      this.message = undefined;
+    }
+    if (this.description.errors != null) {
+      this.errorDescription = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorDescription = false;
+      this.message = undefined;
+    }
+    if (this.picked_category == "Item Category") {
+      this.errorCategory = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorCategory = false;
+      this.message = undefined;
+    }
+    if (this.picked_subcategory == "Item Subcategory") {
+      this.errorSubcategory = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorSubcategory = false;
+      this.message = undefined;
+    }
+    if (this.picked_brand == "Item Brand") {
+      this.errorBrand = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.errorBrand = false;
+      this.message = undefined;
+    }
+    if (this.item_image == "https://res.cloudinary.com/auctionabh/image/upload/v1580406474/ShopAppLogoPicture/600x600_vwq9cv.png") {
+      this.errorImage = true;
+      this.message = "Enter all the necessary information below!";
+      this.type = "error";
+      window.scroll(0,0);
+    } else {
+      this.message = undefined;
+      this.errorImage = false;
+    }
+
+    if (this.name.errors == null &&
+      this.price.errors == null &&
+      this.description.errors == null &&
+      this.picked_category != "Item Category" &&
+      this.picked_subcategory != "Item Subcategory" &&
+      this.picked_brand != "Item Brand" &&
+      this.item_image != "https://res.cloudinary.com/auctionabh/image/upload/v1580406474/ShopAppLogoPicture/600x600_vwq9cv.png") {
+      let company;
+      if (this.userService.getUserName() == "AdminCM") {
+        company = "Cosmetic Market (CM)";
+      } else if (this.userService.getUserName() == "AdminDM") {
+        company = "Drogerie Markt (DM)";
+      }
+      this.loading = true;
+      window.scroll(0,0);
+      this.productService.saveNewItem(
+          this.name.value,
+          this.price.value,
+          this.description.value,
+          this.item_image,
+          this.picked_category,
+          this.picked_subcategory,
+          this.picked_brand,
+          company).subscribe(listOfProductsJSON => {
+            console.log(listOfProductsJSON);
+            this.loading = false;
+            this.message = "Item successfully saved!";
+            this.type = "success";
+            this.add.reset();
+            this.picked_brand = "Item Brand";
+            this.picked_category = "Item Category";
+            this.picked_subcategory = "Item Subcategory";
+            this.brands = undefined;
+            this.subcategories = undefined;
+            this.item_image = "https://res.cloudinary.com/auctionabh/image/upload/v1580406474/ShopAppLogoPicture/600x600_vwq9cv.png";
+          }, err => console.log(err.error));
+      }
 
   }
 }

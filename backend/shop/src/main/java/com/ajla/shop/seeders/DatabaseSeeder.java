@@ -149,9 +149,7 @@ public class DatabaseSeeder {
             b4.setName("Maybelline");
             Brand b5 = new Brand();
             b5.setName("Max Factor");
-            Brand b6 = new Brand();
-            b6.setName("Other");
-            b1.setBrands(Arrays.asList(b2, b3, b4, b5, b6));
+            b1.setBrands(Arrays.asList(b2, b3, b4, b5));
 
             Brand b7 = new Brand();
             b7.setName("haircare_brands");
@@ -161,9 +159,7 @@ public class DatabaseSeeder {
             b10.setName("Garnier");
             Brand b11 = new Brand();
             b11.setName("Aveda");
-            Brand b12 = new Brand();
-            b12.setName("Other");
-            b7.setBrands(Arrays.asList(b9, b10, b11, b12));
+            b7.setBrands(Arrays.asList(b9, b10, b11));
 
 
             Brand b8 = new Brand();
@@ -172,11 +168,9 @@ public class DatabaseSeeder {
             b13.setName("Nivea");
             Brand b14 = new Brand();
             b14.setName("Afrodita");
-            Brand b15 = new Brand();
-            b15.setName("Other");
-            b8.setBrands(Arrays.asList(b13, b14, b15));
+            b8.setBrands(Arrays.asList(b13, b14));
 
-            brandRepository.saveAll(Arrays.asList(b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15));
+            brandRepository.saveAll(Arrays.asList(b1, b2, b3, b4, b5,b7, b8, b9, b10, b11,b13, b14));
 
             logger.info("Brand table seeded");
         }
@@ -190,8 +184,8 @@ public class DatabaseSeeder {
         final Category oneOfParentsCategories = categoryRepository.findCategoryById((long) 1);
         if (oneOfParentsCategories == null) {
             Brand cosmetics_brand = brandRepository.findBrandById((long) 1);
-            Brand haircare_brand = brandRepository.findBrandById((long) 7);
-            Brand skincare_brand = brandRepository.findBrandById((long) 12);
+            Brand haircare_brand = brandRepository.findBrandById((long) 6);
+            Brand skincare_brand = brandRepository.findBrandById((long) 10);
 
             Category c1 = new Category();
             c1.setName("Haircare");
@@ -204,9 +198,7 @@ public class DatabaseSeeder {
             c4.setName("Hair Oil");
             Category c5 = new Category();
             c5.setName("Hair Accessories");
-            Category c15 = new Category();
-            c15.setName("Other");
-            c1.setSubcategories(Arrays.asList(c2, c3, c4, c5, c15));
+            c1.setSubcategories(Arrays.asList(c2, c3, c4, c5));
 
             Category c6 = new Category();
             c6.setName("Cosmetics");
@@ -225,9 +217,7 @@ public class DatabaseSeeder {
             c12.setName("Eyeliner");
             Category c13 = new Category();
             c13.setName("Mascara");
-            Category c14 = new Category();
-            c14.setName("Other");
-            c6.setSubcategories(Arrays.asList(c7, c8, c9, c10, c11, c12, c13, c14));
+            c6.setSubcategories(Arrays.asList(c7, c8, c9, c10, c11, c12, c13));
 
             Category c16 = new Category();
             c16.setName("Skincare");
@@ -240,12 +230,10 @@ public class DatabaseSeeder {
             c19.setName("Milk");
             Category c20 = new Category();
             c20.setName("Oils");
-            Category c21 = new Category();
-            c21.setName("Other");
-            c16.setSubcategories(Arrays.asList(c17, c18, c19, c20, c21));
+            c16.setSubcategories(Arrays.asList(c17, c18, c19, c20));
 
             categoryRepository.saveAll(Arrays.asList(c1, c2, c3, c4, c5, c6, c7,
-                    c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19, c20, c21));
+                    c8, c9, c10, c11, c12, c13, c16, c17, c18, c19, c20));
             logger.info("Category table seeded");
         }
         else {

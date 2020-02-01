@@ -6,8 +6,8 @@ p {
 .message {
   display: flex;
   align-items: center;
-  height: 50px;
-  font: 400 17px "Poppins", sans-serif;
+  height: 4vw;
+  font: 400 1.3vw "Poppins", sans-serif;
   border-radius: 4px;
 }
 .message.success {
@@ -25,7 +25,17 @@ p {
   color: darkred;
 }
 .message > fa-icon {
-  font-size: 20px;
-  margin-left: 13px;
-  margin-right: 8px;
+  font-size: 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .message {
+    height: 8vw;
+    font-size: 3vw;
+  }
+  .message > fa-icon {
+    font-size: 3vw;
+  }
 }
