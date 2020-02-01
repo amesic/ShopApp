@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
 
-@CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://shopwisely-app.herokuapp.com"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/api")
 public class ProductController {

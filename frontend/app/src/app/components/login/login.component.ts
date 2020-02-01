@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   informationFromFB;
 
   constructor(
-    private facebookService: FacebookService,
+    public facebookService: FacebookService,
     private userService: UserService,
     private router: Router) {}
 

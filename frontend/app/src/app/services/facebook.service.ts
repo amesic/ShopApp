@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/user';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
@@ -108,6 +107,7 @@ getMessage() {
         })
            this.userLogged = true;
          } else {
+           this.userLogged = false;
            // The person is not logged into your webpage or we are unable to tell. 
            this.subject.next({ text: "Something went wrong with FB login" });
            return this.subject.asObservable();

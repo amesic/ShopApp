@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.io.IOException;
 import java.util.Objects;
 
-@CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:4200", "https://shopwisely-app.herokuapp.com"}, allowCredentials = "true")
 @RestController
 @RequestMapping("/auth")
 public class AuthorizationController {
@@ -45,6 +45,10 @@ public class AuthorizationController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
         }
 
-        return new ResponseEntity<>(productService.saveNewProduct(product), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(productService.saveNewProduct(product), HttpStatus.OK);
+        } catch (IOException ex) {
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 }

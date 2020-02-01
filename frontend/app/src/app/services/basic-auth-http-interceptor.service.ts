@@ -11,7 +11,7 @@ export class BasicAuthHttpInterceptorService {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     const request = req.clone({
     url: "http://localhost:8080" + req.url,
-    //url: "https://atlantbh-auction-api.herokuapp.com" + req.url,
+    //url: "https://shopwisely-api.herokuapp.com" + req.url,
     headers: req.headers.set("Authorization", sessionStorage.getItem("token") || ""),
     withCredentials: true
   });

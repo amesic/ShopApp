@@ -266,12 +266,14 @@ public class DatabaseSeeder {
         if (oneOfProducts == null) {
             Brand maxFactor = brandRepository.findBrandById((long) 5);
             Brand nivea = brandRepository.findBrandById((long) 13);
+            Brand loreal = brandRepository.findBrandById((long) 3);
 
             Company cm = companyRepository.findCompanyById((long) 1);
             Company dm = companyRepository.findCompanyById((long) 2);
 
             Category cosmetics = categoryRepository.findCategoryById((long) 1);
             Category sub_cosmetics_foundation = categoryRepository.findCategoryById((long) 11);
+            Category sub_cosmetics_lipstick = categoryRepository.findCategoryById((long) 6);
 
             Category skincare = categoryRepository.findCategoryById((long) 16);
             Category sub_skincare_other = categoryRepository.findCategoryById((long) 21);
@@ -284,7 +286,7 @@ public class DatabaseSeeder {
             p1.setSubcategory(sub_cosmetics_foundation);
             p1.setCompany(cm);
             p1.setDescription("Radiant Lift Concealer sljedeći je proizvod iz nove linije, a koji omogućuje trenutno posvjetljivanje i blistavost. Ovaj tekući korektor lako se nanosi i razmazuje zahvaljujući mekom spužvastom aplikatoru.");
-            p1.setImage("https://www.womeninadria.com/wp-content/uploads/2018/12/max-factor-puder.jpg");
+            p1.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580556747/max-factor-puder_dvynfo.jpg");
             p1.setPrice((double) 20);
             p1.setDate_published(LocalDateTime.now());
 
@@ -295,7 +297,7 @@ public class DatabaseSeeder {
             p2.setSubcategory(sub_cosmetics_foundation);
             p2.setCompany(dm);
             p2.setDescription("Radiant Lift Concealer sljedeći je proizvod iz nove linije, a koji omogućuje trenutno posvjetljivanje i blistavost. Ovaj tekući korektor lako se nanosi i razmazuje zahvaljujući mekom spužvastom aplikatoru.");
-            p2.setImage("https://www.womeninadria.com/wp-content/uploads/2018/12/max-factor-puder.jpg");
+            p2.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580556747/max-factor-puder_dvynfo.jpg");
             p2.setPrice((double) 25);
             p2.setDate_published(LocalDateTime.now());
 
@@ -306,7 +308,7 @@ public class DatabaseSeeder {
             p3.setSubcategory(sub_skincare_other);
             p3.setCompany(dm);
             p3.setDescription("NIVEA Creme nenadmašna je hidratantna krema za sve tipove kože, za djecu kao i za odrasle tijekom svih godišnjih doba. NIVEA Creme sadrži koži srodan Eucerit®, jedinstveni hidratantni sastojak koji koži pruža svu potrebnu vlažnost.");
-            p3.setImage("https://www.nivea.hr/~/images/media-center-items/5/9/7-149992-2.jpg?mw=804&mh=1000");
+            p3.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580556838/7-149992-2_wqptmf.jpg");
             p3.setPrice((double) 15);
             p3.setDate_published(LocalDateTime.now());
 
@@ -317,11 +319,33 @@ public class DatabaseSeeder {
             p4.setSubcategory(sub_skincare_other);
             p4.setCompany(cm);
             p4.setDescription("NIVEA Creme nenadmašna je hidratantna krema za sve tipove kože, za djecu kao i za odrasle tijekom svih godišnjih doba. NIVEA Creme sadrži koži srodan Eucerit®, jedinstveni hidratantni sastojak koji koži pruža svu potrebnu vlažnost.");
-            p4.setImage("https://www.nivea.hr/~/images/media-center-items/5/9/7-149992-2.jpg?mw=804&mh=1000");
+            p4.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580556838/7-149992-2_wqptmf.jpg");
             p4.setPrice((double) 15);
             p4.setDate_published(LocalDateTime.now());
 
-            productRepository.saveAll(Arrays.asList(p1, p2, p3 , p4));
+            Product p5 = new Product();
+            p5.setName("Infallible Loreal puder");
+            p5.setBrand(loreal);
+            p5.setCategory(cosmetics);
+            p5.setSubcategory(sub_cosmetics_foundation);
+            p5.setCompany(cm);
+            p5.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580487930/r29lcdjak1to0e9zgzpo.jpg");
+            p5.setDescription("Dugotrajna pokrivenost koja dopušta koži da diše. Vodootporan. Svjež izgled tokom cijelog dana. Otporan na sve, jer vi to zaslužujete.");
+            p5.setPrice((double) 15);
+            p5.setDate_published(LocalDateTime.now());
+
+            Product p6 = new Product();
+            p6.setName("Riche Loreal ruž");
+            p6.setBrand(loreal);
+            p6.setCategory(cosmetics);
+            p6.setSubcategory(sub_cosmetics_lipstick);
+            p6.setCompany(dm);
+            p6.setDescription("Hidratantni ruž Color Riche u sjajnoj, senzualnoj nijansi s bogatom teksturom i sastojcima za zaštitu prirodne ljepote usana. Pruža osjećaj ugode.");
+            p6.setPrice((double) 10);
+            p6.setImage("https://res.cloudinary.com/auctionabh/image/upload/v1580557198/LOreal-Paris-Color-Riche-ru%C5%BE-za-usne-378-Velvet-Rose_ppwehl.jpg");
+            p6.setDate_published(LocalDateTime.now());
+
+            productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5, p6));
 
             logger.info("Product table seeded");
         } else {

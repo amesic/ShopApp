@@ -50,7 +50,7 @@ export class AddNewItemComponent implements OnInit {
   loading = false;
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     private categoryService: CategoryService,
     private productService: ProductService
   ) {}
@@ -229,7 +229,6 @@ export class AddNewItemComponent implements OnInit {
           this.picked_subcategory,
           this.picked_brand,
           company).subscribe(listOfProductsJSON => {
-            console.log(listOfProductsJSON);
             this.loading = false;
             this.message = "Item successfully saved!";
             this.type = "success";

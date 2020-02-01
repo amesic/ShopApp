@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { User } from "../models/user";
+import { User } from "../models/User";
 import { Observable } from "rxjs";
+import { FacebookService } from './facebook.service';
 
 @Injectable({
   providedIn: "root"

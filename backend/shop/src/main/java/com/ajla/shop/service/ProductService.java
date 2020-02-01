@@ -14,8 +14,11 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -50,7 +53,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product saveNewProduct(final Product newItem) {
+    public Product saveNewProduct(final Product newItem) throws IOException {
         Category category = categoryRepository.findCategoryByName(newItem.getCategory().getName());
         Category subcategory = categoryRepository.findCategoryByName(newItem.getSubcategory().getName());
         Brand brand = brandRepository.findBrandByName(newItem.getBrand().getName());
@@ -61,7 +64,7 @@ public class ProductService implements IProductService {
         newItem.setCompany(company);
         newItem.setDate_published(LocalDateTime.now());
 
-        Map<String, Object> savedItemDetails = new HashMap<>();
+        JSONObject savedItemDetails = new JSONObject();
         savedItemDetails.put("product_name", newItem.getName());
         savedItemDetails.put("product_price", newItem.getPrice());
         savedItemDetails.put("product_description", newItem.getDescription());
@@ -71,17 +74,12 @@ public class ProductService implements IProductService {
         savedItemDetails.put("product_image_url", newItem.getImage());
         savedItemDetails.put("product_company", newItem.getCompany().getName());
 
-        Map<String, Object> savedItem = new HashMap<>();
+        JSONObject savedItem = new JSONObject();
         savedItem.put("saved_product", savedItemDetails);
-
-       /* Map<String, Object> items = new HashMap<>();
-        items.put(savedItem);*/
 
         try (FileWriter file = new FileWriter("savedProduct.json")) {
             file.write(String.valueOf(savedItem));
             file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return productRepository.save(newItem);
     }
