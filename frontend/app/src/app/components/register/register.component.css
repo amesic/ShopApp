@@ -1,0 +1,116 @@
+.wrapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1vw;
+}
+.register {
+  width: 50%;
+  text-align: center;
+  border: 1px solid #d8d8d8;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1vw;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.email > input,
+.password > input,
+.first-name > input,
+.last-name > input {
+  font: 400 1.4vw "Poppins", sans-serif;
+  height: 4vw;
+  padding-left: 1vw;
+  width: 30vw;
+  letter-spacing: 0.5px;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+}
+.email,
+.password,
+.first-name,
+.last-name {
+  margin-bottom: 2vw;
+}
+.email > p,
+.password > p,
+.first-name > p,
+.last-name > p {
+  margin: 0;
+  font: 300 1vw "Poppins", sans-serif;
+  text-align: start;
+  padding-left: 1vw;
+  color: rgb(212, 5, 5);
+}
+.first-name {
+  margin-top: 2vw;
+}
+input[type="button"] {
+  height: 3.5vw;
+  width: 100%;
+  font: 400 1.5vw "Poppins", sans-serif;
+  letter-spacing: 1px;
+  background: olive;
+  color: #fff;
+  border: 1px solid olive;
+  border-radius: 44px;
+  margin-bottom: 2vw;
+}
+input[type="button"]:hover {
+  background: rgb(170, 170, 4);
+  cursor: pointer;
+}
+app-message {
+  width: 50%;
+  display: none;
+}
+app-message.show {
+  display: block;
+}
+
+@media only screen and (max-width: 500px) {
+  app-message {
+    width: 95%;
+  }
+  .register {
+    width: 95%;
+    height: 100vw;
+  }
+  .wrapp {
+    position: absolute;
+    height: 80%;
+  }
+  .email > input,
+  .password > input,
+  .first-name > input,
+  .last-name > input {
+    height: 10vw;
+    font-size: 4vw;
+    width: 100%;
+  }
+  .first-name {
+    margin-top: 0;
+  }
+  input[type="button"] {
+    height: 10vw;
+    font-size: 4vw;
+  }
+  .email,
+  .password,
+  .first-name,
+  .last-name {
+    margin-bottom: 6vw;
+  }
+  .email > p,
+  .password > p,
+  .first-name > p,
+  .last-name > p {
+    font-size: 3vw;
+  }
+}

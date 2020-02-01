@@ -1,0 +1,91 @@
+div,
+p {
+  margin: 0;
+}
+.wrapp {
+  margin-top: 5vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  margin-bottom: 10vw;
+}
+.title {
+  font: 200 3vw "Poppins", sans-serif;
+  border-bottom: 1px solid olive;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2vw;
+}
+.product-image {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
+.company-logo {
+  width: 3vw;
+  height: 3vw;
+  object-fit: contain;
+  position: absolute;
+  bottom: 0.5vw;
+  right: 0.5vw;
+}
+.image-company {
+  position: relative;
+}
+.load {
+  text-align: end;
+}
+.load > .button-load {
+  background: olive;
+  border: none;
+  font: 200 1vw "Poppins", sans-serif;
+  color: white;
+  padding-right: 0.5vw;
+  padding-left: 0.5vw;
+  padding-bottom: 0.4vw;
+  padding-top: 0.4vw;
+  margin-top: 2vw;
+}
+.button-load.hide {
+  display: none;
+}
+.load > .button-load:hover {
+  transform: translateX(1%) translateY(5%);
+  cursor: pointer;
+  background-color: rgb(182, 182, 3);
+}
+.product-name {
+  font: 700 1.5vw "Poppins", sans-serif;
+}
+.product-price {
+  font: 200 1.5vw "Poppins", sans-serif;
+  color: olive;
+}
+.message {
+  font: 200 3vw "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 5vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .title {
+    font-size: 5vw;
+  }
+  .load > .button-load {
+    height: 4vw;
+    width: 12vw;
+    font-size: 1.5vw;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-image {
+    object-fit: contain;
+  }
+}

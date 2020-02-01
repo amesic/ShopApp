@@ -1,0 +1,96 @@
+.header-up {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #3f3f3f;
+  height: 2vw;
+  font: 400 0.8vw "Poppins", sans-serif;
+  letter-spacing: 0.05vw;
+  padding-right: 1vw;
+  padding-left: 31vw;
+  color: #ffffff;
+}
+.info {
+  margin: 0;
+  padding: 0;
+  font: 400 1vw "Poppins", sans-serif;
+}
+.links,
+.header-down {
+  margin: 0;
+}
+.links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.links label {
+  font-size: 0.7vw;
+  color: #bebdbd;
+  margin-left: 0.9vw;
+  margin-right: 0.9vw;
+}
+.links a:hover,
+.header-down a:hover,
+.header-down > div:hover {
+  color: olive;
+}
+.links .welcome-label {
+  margin-right: 1vw;
+  font: 400 0.8vw "Poppins", sans-serif;
+}
+.header-down a {
+  text-decoration: none;
+  color: #3f3f3f;
+  margin-right: 2.8vw;
+}
+.header-down {
+  height: 4vw;
+  font: 200 1.3vw "Poppins", sans-serif;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 1px 1px 0 0 rgba(128, 128, 0, 0.158);
+  background: rgba(209, 209, 7, 0.11);
+}
+.header-down a.active,
+.header-down > div > fa-icon.active {
+  color: olive;
+  font-weight: 400;
+}
+.header-down > div {
+  position: relative;
+  margin-left: 1vw;
+}
+.header-down > div > fa-icon {
+  position: absolute;
+  right: 11.8vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .header-up {
+    height: 5vw;
+    padding-left: 2vw;
+  }
+  .info {
+    font-size: 1.7vw;
+  }
+  .links {
+    font-size: 1.5vw;
+  }
+  .links label {
+    font-size: 1.5vw;
+  }
+  .links .welcome-label {
+    font-size: 1.5vw;
+  }
+  .header-down {
+    font-size: 3vw;
+    height: 7vw;
+  }
+  .header-down > div > fa-icon {
+    right: 25.5vw;
+  }
+  .header-down a {
+    margin-right: 4.8vw;
+  }
+}

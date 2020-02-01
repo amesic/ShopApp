@@ -1,0 +1,183 @@
+.wrapp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+}
+.login {
+  width: 60%;
+  text-align: center;
+  border: 1px solid #d8d8d8;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 25vw;
+  margin-top: 1vw;
+}
+form {
+  display: flex;
+  justify-content: space-around;
+  width: 60vw;
+}
+.button-facebook {
+  background: #3b5998;
+  color: white;
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding-left: 2vw;
+  font: 400 1.2vw "Poppins", sans-serif;
+  border-radius: 4px;
+}
+.facebook:hover {
+  transform: translateX(1%) translateY(5%);
+  cursor: pointer;
+}
+.facebook:hover > .button-facebook {
+  background: #4163ac;
+  cursor: pointer;
+}
+.facebook {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 18vw;
+  height: 4vw;
+  margin-top: 6vw;
+}
+.facebook > fa-icon {
+  position: absolute;
+  left: 0.7vw;
+  top: 0.45vw;
+  font-size: 2.7vw;
+  color: white;
+}
+.email-password > .email > input,
+.email-password > .password > input {
+  font: 400 1.3vw "Poppins", sans-serif;
+  height: 3vw;
+  letter-spacing: 0.05vw;
+  border: none;
+  border-bottom: 1px solid #d8d8d8;
+}
+.email-password > .email,
+.email-password > .password {
+  margin-bottom: 2vw;
+}
+.email-password > .email > p,
+.email-password > .password > p,
+.message {
+  margin: 0;
+  font: 300 0.8vw "Poppins", sans-serif;
+  text-align: start;
+  color: rgb(212, 5, 5);
+}
+.email-password > input[type="button"] {
+  height: 3vw;
+  width: 100%;
+  font: 400 1.5vw "Poppins", sans-serif;
+  letter-spacing: 1px;
+  background: olive;
+  color: #fff;
+  border: 1px solid olive;
+  border-radius: 44px;
+}
+.email-password > input[type="button"]:hover {
+  background: rgb(170, 170, 4);
+  cursor: pointer;
+}
+.or {
+  display: flex;
+  align-items: center;
+  height: 16vw;
+  color: #3f3f3f;
+  font: 400 1vw "Poppins", sans-serif;
+  border-right: 1.5px solid #d4d4d4;
+  position: relative;
+}
+.or > p {
+  position: absolute;
+  right: -0.7vw;
+  background-color: white;
+}
+.spinner.showSpinner {
+  display: block;
+}
+.spinner {
+  height: 100%;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.164);
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+app-message {
+  width: 60%;
+  display: none;
+}
+app-message.show {
+  display: block;
+}
+
+@media only screen and (max-width: 500px) {
+  .wrapp {
+    height: 80%;
+  }
+  .login {
+    width: 95%;
+    height: 100vw;
+  }
+  form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .facebook {
+    width: 53vw;
+    height: 10vw;
+    margin-top: 0;
+  }
+  .button-facebook {
+    padding-left: 9vw;
+    font-size: 4vw;
+  }
+  .facebook > fa-icon {
+    left: 1.5vw;
+    font-size: 8vw;
+  }
+  .email-password > .email > input,
+  .email-password > .password > input {
+    height: 10vw;
+    font-size: 4vw;
+  }
+  .email-password > input[type="button"] {
+    height: 10vw;
+    font-size: 4vw;
+  }
+  .email-password > .email > p,
+  .email-password > .password > p {
+    font-size: 3vw;
+  }
+  .email-password > .password {
+    margin-bottom: 7vw;
+  }
+  .or {
+    width: 133%;
+    border: none;
+    border-bottom: 1.5px solid #d4d4d4;
+    height: 0;
+    margin-top: 10vw;
+    margin-bottom: 10vw;
+    font-size: 3vw;
+  }
+  .or > p {
+    position: absolute;
+    right: 38vw;
+  }
+  app-message {
+    width: 95%;
+  }
+}
