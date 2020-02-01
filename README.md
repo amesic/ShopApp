@@ -50,7 +50,7 @@ Shop Wisely is an application for cosmetic companies in Bosnia and Herzegovina (
 
 ## Install and run:
 1. Admin login information:
-1.1. email: info@cm.ba, password: 12345678
+1.1. email: info@cm.ba, password: 12345678 <br>
 1.2. email: info@dm.ba, password: 12345678
 
 
