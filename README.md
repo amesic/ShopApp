@@ -45,6 +45,7 @@ Shop Wisely is an application for cosmetic companies in Bosnia and Herzegovina (
 - Hibernate Criteria for writing queries 
 - Facebook APIs for Authentication 
 - Own APIs for getting new arrivals collection, saving new user, saving new product, etc
+- Pagination of received collection from API
 
 ## Install and run:
 
