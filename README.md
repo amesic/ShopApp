@@ -46,8 +46,13 @@ Shop Wisely is an application for cosmetic companies in Bosnia and Herzegovina (
 - Facebook APIs for Authentication 
 - Own APIs for getting new arrivals collection, saving new user, saving new product, etc
 - Pagination of received collection from API
+- Validation for forms
 
 ## Install and run:
+1. Admin login information:
+1.1. email: info@cm.ba, password: 12345678
+1.2. email: info@dm.ba, password: 12345678
+
 
 ## Deployed application:
 1. https://shopwisely-app.herokuapp.com
