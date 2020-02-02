@@ -53,7 +53,7 @@ After cloning the git repository: <br>
 Back-end: <br>
 1. Open backend/shop in IDE (I worked in Intellij IDEA)
 2. Build project
-3. Run application
+3. Run application <br>
 Front-end: <br>
 1. Open frontend/app in a code editor (visual studio code, etc.)
 2. Install packages by entering the command in the terminal: npm install
@@ -70,17 +70,17 @@ User:
 1.6. User is now logged in the application.
 
 2. Login with Facebook <br>
-2.1. Click on the 'Login' link.
-2.2. Click on the button 'Login with Facebook'.
-2.3. Account is created and saved in the database with information from facebook.
-2.4. User is now logged in the application.
+2.1. Click on the 'Login' link.  <br>
+2.2. Click on the button 'Login with Facebook'.  <br>
+2.3. Account is created and saved in the database with information from facebook. <br>
+2.4. User is now logged in the application. <br>
 
 Company:
 1. Admin login information: <br>
   1.1. email: info@cm.ba, password: 12345678 <br>
   1.2. email: info@dm.ba, password: 12345678
 2. Log in by clicking on the 'Login' link.
-3. After login, click on 'Add new item'.
+3. After logging in, click on 'Add new item'.
 4. Enter all required information of the item and confirm.
 5. The new item is located under the 'New Arrivals' section.
 
