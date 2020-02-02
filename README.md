@@ -84,6 +84,7 @@ Company:
 3. After logging in, click on 'Add new item'.
 4. Enter all required information of the item and confirm.
 5. The new item is located under the 'New Arrivals' section.
+6. JSON file is created in the folder 'newItemInCollectionJSON'.
 
 
 ## Deployed application:
