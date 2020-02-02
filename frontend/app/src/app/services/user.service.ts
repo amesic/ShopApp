@@ -24,7 +24,6 @@ export class UserService {
           sessionStorage.setItem("token", tokenStr);
           sessionStorage.setItem("email", userData.email);
           sessionStorage.setItem("role", userData.role[0]);
-          console.log(userData.role[0]);
           return userData;
         })
       );

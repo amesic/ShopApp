@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
     return this.register.get("password");
   }
   get lastname() {
-    return this.register.get("firstname");
+    return this.register.get("lastname");
   }
   get firstname() {
-    return this.register.get("lastname");
+    return this.register.get("firstname");
   }
 
   submit() {
