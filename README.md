@@ -53,7 +53,8 @@ After cloning the git repository: <br>
 Back-end: <br>
 1. Open backend/shop in IDE (I worked in Intellij IDEA)
 2. Build project
-3. Run application <br>
+3. Run application
+
 Front-end: <br>
 1. Open frontend/app in a code editor (visual studio code, etc.)
 2. Install packages by entering the command in the terminal: npm install
