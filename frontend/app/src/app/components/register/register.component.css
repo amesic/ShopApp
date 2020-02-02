@@ -83,8 +83,7 @@ app-message.show {
     height: 100vw;
   }
   .wrapp {
-    position: absolute;
-    height: 80%;
+    margin-top: 10vw;
   }
   .email > input,
   .password > input,

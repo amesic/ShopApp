@@ -229,7 +229,7 @@ app-message.show {
 }
 @media only screen and (max-width: 500px) {
   .wrapp {
-    margin-top: 20vw;
+    margin-top: 10vw;
   }
   .new-item {
     width: 95%;
@@ -260,10 +260,10 @@ app-message.show {
     height: 20vw;
   }
   .image-button > button {
-    font-size: 4vw;
+    font-size: 3vw;
   }
   .item-img {
-    height: 35vw;
+    height: 30vw;
   }
   .wrapp-categories,
   .wrapp-subcategories,

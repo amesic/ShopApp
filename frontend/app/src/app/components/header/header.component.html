@@ -26,7 +26,7 @@
 
   <div class="header-down">
     <a [routerLink]="['/home']" routerLinkActive="active">HOME</a>
-    <a [routerLink]="['/shop']" routerLinkActive="active">SHOP</a>
+   <!-- <a [routerLink]="['/shop']" routerLinkActive="active">SHOP</a>-->
     <div *ngIf="userService.getRole() == 'admin'">
     <a [routerLink]="['/add']" routerLinkActive="active">ADD NEW ITEM</a>
     <fa-icon [ngClass]="{active: router.url == '/add'}" [icon]="faPlusCircle"></fa-icon>

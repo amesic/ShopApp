@@ -77,7 +77,7 @@ public class ProductService implements IProductService {
         JSONObject savedItem = new JSONObject();
         savedItem.put("saved_product", savedItemDetails);
 
-        try (FileWriter file = new FileWriter("savedProduct.json")) {
+        try (FileWriter file = new FileWriter("newItemInCollectionJSON/savedProduct.json")) {
             file.write(String.valueOf(savedItem));
             file.flush();
         }
